@@ -24,7 +24,7 @@
       </div>
       <div v-if="pub_key">
         <textarea class="u-full-width" readonly="" v-model="pub_key"></textarea>
-        <button class="u-full-width button-primary" v-on:click="copyToClipboard">Copy To Clipboard</button>
+        <button class="u-full-width button-primary" v-on:click="copyToClipboard">{{ copyText }}</button>
       </div>
     </div>
     <!-- All of the Node.js APIs are available in this renderer process. -->

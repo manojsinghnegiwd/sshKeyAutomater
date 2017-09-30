@@ -13,12 +13,15 @@ var app = new Vue({
         path: '',
         passphrase: '',
         pub_key: '',
-        err: ''
+        err: '',
+        copyText: 'Copy To Clipboard'
     },
     methods: {
     	generateKey: function () {
 
     		this.err = '';
+    		this.pub_key = '';
+    		this.copyText = 'Copy To Clipboard';
 
     		const cmd = 'ssh-keygen -N "' + this.passphrase + '" -f' + this.path;
 
@@ -40,6 +43,8 @@ var app = new Vue({
 		    });
     	},
     	copyToClipboard: function () {
+
+    		this.copyText = 'Copied!'
 
     		if(os.platform() == 'darwin') {
     			return clipboard.writeText(this.pub_key, 'selection')
