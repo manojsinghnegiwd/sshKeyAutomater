@@ -2,15 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>SSH key generator</title>
+    <script src="https://unpkg.com/vue"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <div id="app">
+      <input type="text" v-model="path" placeholder="Key output path">
+      <input type="password" placeholder="Enter Passphrase (Leave empty for none)" v-model="passphrase">
+      <button v-on:click="generateKey">Generate ssh Key</button>
+      <textarea v-if="pub_key" readonly="" v-model="pub_key"></textarea>
+    </div>
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
