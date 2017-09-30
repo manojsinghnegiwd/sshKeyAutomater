@@ -13,9 +13,12 @@ var app = new Vue({
         path: '',
         passphrase: '',
         pub_key: '',
+        err: ''
     },
     methods: {
     	generateKey: function () {
+
+    		this.err = '';
 
     		const cmd = 'ssh-keygen -N "' + this.passphrase + '" -f' + this.path;
 
@@ -27,12 +30,12 @@ var app = new Vue({
 		            fs.readFile(this.path + '.pub', 'utf8', (err, data) => {
 		            	this.pub_key = data
 		            })
+
+		            this.path = '';
+		            this.passphrase = '';
 		        }
 		        if(stderr!==''){
-		            console.log('---------stderr: ---------\n' + stderr);
-		        }
-		        if (error !== null) {
-		            console.log('---------exec error: ---------\n[' + error+']');
+		            this.err = stderr;
 		        }
 		    });
     	},

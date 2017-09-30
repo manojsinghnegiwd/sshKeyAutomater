@@ -9,6 +9,9 @@
       textarea {
         height: 140px;
       }
+      .text-danger {
+        color: #e74c3c;
+      }
     </style>
   </head>
   <body>
@@ -16,6 +19,9 @@
       <input class="u-full-width" type="text" v-model="path" placeholder="Key output path">
       <input class="u-full-width" type="password" placeholder="Enter Passphrase (Leave empty for none)" v-model="passphrase">
       <button class="u-full-width button-primary" v-on:click="generateKey">Generate ssh Key</button>
+      <div v-if="err">
+        <p class="text-danger">{{err}}</p>
+      </div>
       <div v-if="pub_key">
         <textarea class="u-full-width" readonly="" v-model="pub_key"></textarea>
         <button class="u-full-width button-primary" v-on:click="copyToClipboard">Copy To Clipboard</button>
