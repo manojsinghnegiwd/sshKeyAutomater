@@ -10,7 +10,10 @@
       <input type="text" v-model="path" placeholder="Key output path">
       <input type="password" placeholder="Enter Passphrase (Leave empty for none)" v-model="passphrase">
       <button v-on:click="generateKey">Generate ssh Key</button>
-      <textarea v-if="pub_key" readonly="" v-model="pub_key"></textarea>
+      <div v-if="pub_key">
+        <textarea readonly="" v-model="pub_key"></textarea>
+        <button v-on:click="copyToClipboard">Copy To Clipboard</button>
+      </div>
     </div>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <script>

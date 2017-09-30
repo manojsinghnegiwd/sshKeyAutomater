@@ -4,6 +4,8 @@
 
 var exec = require('child_process').exec
 var fs = require('fs');
+const {clipboard} = require('electron');
+var os = require('os');
 
 var app = new Vue({
     el: '#app',
@@ -23,7 +25,7 @@ var app = new Vue({
 		    (error, stdout, stderr) => {
 		        if(stdout!==''){
 		            fs.readFile(this.path + '.pub', 'utf8', (err, data) => {
-		            	console.log(data)
+		            	this.pub_key = data
 		            })
 		        }
 		        if(stderr!==''){
@@ -33,6 +35,15 @@ var app = new Vue({
 		            console.log('---------exec error: ---------\n[' + error+']');
 		        }
 		    });
+    	},
+    	copyToClipboard: function () {
+
+    		if(os.platform() == 'darwin') {
+    			return clipboard.writeText(this.pub_key, 'selection')
+    		}
+
+    		clipboard.writeText(this.pub_key);
+
     	}
     }
 })
