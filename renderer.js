@@ -36,6 +36,7 @@ var app = new Vue({
 
 		            this.path = '';
 		            this.passphrase = '';
+
 		        }
 		        if(stderr!==''){
 		            this.err = stderr;
