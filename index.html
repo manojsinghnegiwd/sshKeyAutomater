@@ -5,15 +5,20 @@
     <title>SSH key generator</title>
     <link rel="stylesheet" type="text/css" href="./skeleton.min.css">
     <script src="./vue.min.js"></script>
+    <style>
+      textarea {
+        height: 140px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <input type="text" v-model="path" placeholder="Key output path">
-      <input type="password" placeholder="Enter Passphrase (Leave empty for none)" v-model="passphrase">
-      <button v-on:click="generateKey">Generate ssh Key</button>
+      <input class="u-full-width" type="text" v-model="path" placeholder="Key output path">
+      <input class="u-full-width" type="password" placeholder="Enter Passphrase (Leave empty for none)" v-model="passphrase">
+      <button class="u-full-width button-primary" v-on:click="generateKey">Generate ssh Key</button>
       <div v-if="pub_key">
-        <textarea readonly="" v-model="pub_key"></textarea>
-        <button v-on:click="copyToClipboard">Copy To Clipboard</button>
+        <textarea class="u-full-width" readonly="" v-model="pub_key"></textarea>
+        <button class="u-full-width button-primary" v-on:click="copyToClipboard">Copy To Clipboard</button>
       </div>
     </div>
     <!-- All of the Node.js APIs are available in this renderer process. -->
