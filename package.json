@@ -1,20 +1,17 @@
 {
-  "name": "electron-quick-start",
+  "name": "sshKeyAutomater",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Ssh key generator",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/manojsinghnegiwd/sshKeyAutomater",
   "keywords": [
     "Electron",
     "quick",
-    "start",
-    "tutorial",
-    "demo"
   ],
-  "author": "GitHub",
+  "author": "Manoj Singh Negi",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.7.8"
