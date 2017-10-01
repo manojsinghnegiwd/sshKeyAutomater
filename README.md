@@ -1,6 +1,6 @@
 # Ssh key automater
 
-Download for macos and linux
+Download for [macos](http://www.manojsinghnegi.com/sshKeyAutomater.dmg) and linux
 
 ### Development
 
